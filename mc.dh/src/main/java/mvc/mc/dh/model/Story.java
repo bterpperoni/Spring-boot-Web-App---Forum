@@ -17,4 +17,5 @@ public class Story {
     private final Date creationDate;
     @Getter
     private final Date lastEditDate;
+
 }
