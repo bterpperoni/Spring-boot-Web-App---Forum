@@ -1,0 +1,33 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'mvc.mc.dh'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+apply plugin: "org.springframework.boot"
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Springboot core
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//implementation 'org.springframework:spring-webmvc:5.2.22.RELEASE'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// Lombok
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	testCompileOnly 'org.projectlombok:lombok:1.18.24'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
