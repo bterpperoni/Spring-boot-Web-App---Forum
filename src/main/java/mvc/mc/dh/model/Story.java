@@ -1,6 +1,6 @@
 package mvc.mc.dh.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -8,14 +8,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Story {
     @Getter
-    private final int id;
+    private final int ID;
     @Getter
-    private final String title;
+    private final String TITLE;
     @Getter
-    private final String content;
+    private final String CONTENT;
     @Getter
-    private final Date creationDate;
+    private final LocalDateTime CREATIONDATE;
     @Getter
-    private final Date lastEditDate;
-
+    private final LocalDateTime LASTEDITDATE;
 }
