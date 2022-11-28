@@ -1,52 +1,28 @@
 package mvc.mc.dh.adaptater.out;
 
 import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+
 @Entity
 @Data
 @Table(name = "stories")
 public class StoryJpaEntity {
-    public StoryJpaEntity() {
-
-    }
-
-    public StoryJpaEntity(String title, String content, LocalDateTime creationDate, LocalDateTime lastEditDate, boolean visible){
-        this.title = title;
-        this.content = content;
-        this.creationDate = creationDate;
-        this.lastEditDate = lastEditDate;
-        this.visible = visible;
-    }
-
-    public StoryJpaEntity(long id, String title, String content, LocalDateTime creationDate, LocalDateTime lastEditDate, boolean visible){
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.creationDate = creationDate;
-        this.lastEditDate = lastEditDate;
-        this.visible = visible;
-    }
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "story_id")
+    private int id;
 
-    @Column(name = "title")
+    @Column(name = "story_title")
     private String title;
 
-    @Column(name = "content")
+    @Column(name = "story_content")
     private String content;
 
-    @Column(name = "creation_date")
+    @Column(name = "story_creationDate")
     private LocalDateTime creationDate;
 
-    @Column(name = "last_edit_date")
+    @Column(name = "story_lastEditDate")
     private LocalDateTime lastEditDate;
-
-    @Column(name="visible")
-    private boolean visible;
-
-    public StoryJpaEntity(long id, String content, LocalDateTime now, LocalDateTime now1, boolean visible) {
-    }
 }
