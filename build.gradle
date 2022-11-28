@@ -30,6 +30,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	// Javax (JPA)
 	implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+	// JPA Springboot
+	implementation 'org.springframework.data:spring-data-jpa:2.4.4'
 }
 
 tasks.named('test') {
