@@ -1,4 +1,4 @@
-package mvc.mc.dh.Application;
+package mvc.mc.dh.ApplicationTest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
