@@ -41,8 +41,8 @@ public class JpaAdapterTest {
         String firstLineContent = "test";
         String secondLineTitle = "Test2";
 
-        assertEquals(firstLineTitle, stories.get(0).TITLE());
-        assertEquals(firstLineContent, stories.get(0).CONTENT());
-        assertEquals(secondLineTitle, stories.get(1).TITLE());
+        assertEquals(firstLineTitle, stories.get(0).getTITLE());
+        assertEquals(firstLineContent, stories.get(0).getCONTENT());
+        assertEquals(secondLineTitle, stories.get(1).getTITLE());
     }
 }
