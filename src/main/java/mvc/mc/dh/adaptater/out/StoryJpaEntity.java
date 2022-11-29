@@ -11,18 +11,18 @@ import java.time.LocalDateTime;
 public class StoryJpaEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "story_id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "story_title")
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "story_content")
+    @Column(name = "content")
     private String content;
 
-    @Column(name = "story_creationDate")
+    @Column(name = "creationDate")
     private LocalDateTime creationDate;
 
-    @Column(name = "story_lastEditDate")
+    @Column(name = "lastEditDate")
     private LocalDateTime lastEditDate;
 }
