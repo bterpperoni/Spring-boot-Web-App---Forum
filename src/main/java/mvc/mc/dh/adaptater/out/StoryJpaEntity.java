@@ -1,16 +1,23 @@
 package mvc.mc.dh.adaptater.out;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 @Entity
 @Data
 @Table(name = "stories")
 public class StoryJpaEntity {
+    public StoryJpaEntity(){
+
+    }
+    public StoryJpaEntity(String title, String content, LocalDateTime creationDate, LocalDateTime lastEditDate){
+        this.title = title;
+        this.content = content;
+        this.creationDate = creationDate;
+        this.lastEditDate = lastEditDate;
+    }
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
