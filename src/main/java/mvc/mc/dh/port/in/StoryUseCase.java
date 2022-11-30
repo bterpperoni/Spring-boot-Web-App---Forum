@@ -5,5 +5,5 @@ import mvc.mc.dh.model.Story;
 
 public interface StoryUseCase {
     List<Story> getStories();
-    Story getStory(int id);
+    Story getStory(long id);
 }

@@ -5,10 +5,8 @@ import mvc.mc.dh.model.Story;
 import mvc.mc.dh.port.out.StoryDbUseCase;
 
 import java.util.List;
-
 @RequiredArgsConstructor
 public class StoryPersistenceAdapter implements StoryDbUseCase {
-
     private final StoryRepository storyRepository;
     private final StoryMapper storyMapper;
 
@@ -19,7 +17,8 @@ public class StoryPersistenceAdapter implements StoryDbUseCase {
     }
 
     @Override
-    public Story getStory(int id) {
-        return null;
+    public Story getStory(long id) {
+        StoryJpaEntity storyEntity = storyRepository.findById(id).stream().findFirst().orElse(null);
+        return storyMapper.mapToDomainEntity(storyEntity);
     }
 }

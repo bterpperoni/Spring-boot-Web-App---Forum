@@ -20,9 +20,9 @@ public class StoryJpaEntity {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "creationDate")
+    @Column(name = "creation_date")
     private LocalDateTime creationDate;
 
-    @Column(name = "lastEditDate")
+    @Column(name = "last_edit_date")
     private LocalDateTime lastEditDate;
 }
