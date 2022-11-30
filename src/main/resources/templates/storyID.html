@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Get stories</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Creation Date</th>
+    <th>Last EditDate</th>
+  </tr>
+  <tr>
+    <td th:text="${storyID.getID}"></td>
+    <td th:text="${storyID.getTITLE}"></td>
+    <td th:text="${storyID.getCONTENT}"></td>
+    <td th:text="${storyID.getCREATIONDATE}"></td>
+    <td th:text="${storyID.getLASTEDITDATE}"></td>
+  </tr>
+</table>
+</body>
+</html>

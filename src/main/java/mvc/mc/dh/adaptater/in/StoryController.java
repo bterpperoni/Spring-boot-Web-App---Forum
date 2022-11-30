@@ -5,6 +5,7 @@ import mvc.mc.dh.port.in.StoryUseCase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import mvc.mc.dh.model.Story;
@@ -24,7 +25,7 @@ public class StoryController {
         return "index";
     }
 
-    // Page de test
+    // Test page
     @GetMapping("/test")
     public String test(Model model){
         Story newStory = new Story(0, "test", null, null, null);
@@ -41,4 +42,10 @@ public class StoryController {
         return "storyList";
     }
 
+    @GetMapping("/story/{id}")
+    public String viewStory(@PathVariable("id") Long ID,Model model){
+        Story storyID = storyUseCase.getStory(ID);
+        model.addAttribute("storyID",storyID);
+        return "storyID";
+    }
 }
