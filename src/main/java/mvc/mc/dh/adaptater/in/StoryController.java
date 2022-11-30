@@ -4,9 +4,7 @@ import lombok.RequiredArgsConstructor;
 import mvc.mc.dh.port.in.StoryUseCase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import mvc.mc.dh.model.Story;
 
@@ -47,5 +45,12 @@ public class StoryController {
         Story storyID = storyUseCase.getStory(ID);
         model.addAttribute("storyID",storyID);
         return "storyID";
+    }
+
+    @PostMapping("/story/create")
+    public String createStory(@RequestBody Story story, Model model){
+        Story storyCreate = storyUseCase.addStory(story);
+        model.addAttribute("storyCreate",storyCreate);
+        return "storyCreate";
     }
 }
