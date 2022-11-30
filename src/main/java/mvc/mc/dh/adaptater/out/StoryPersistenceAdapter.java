@@ -12,12 +12,18 @@ public class StoryPersistenceAdapter implements StoryDbUseCase {
 
     @Override
     public List<Story> getStories() {
+        /*
+            Return a list containing all the stories in the database
+         */
         List<StoryJpaEntity> storiesEntity = storyRepository.findAll();
         return storyMapper.mapToDomainEntity(storiesEntity);
     }
 
     @Override
     public Story getStory(long id) {
+        /*
+            Return a specific story by providing an id
+         */
         StoryJpaEntity storyEntity = storyRepository.findById(id).stream().findFirst().orElse(null);
         return storyMapper.mapToDomainEntity(storyEntity);
     }
