@@ -8,8 +8,8 @@ CREATE TABLE stories(
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
     content VARCHAR(255),
-    creationDate TIMESTAMP,
-    lastEditDate TIMESTAMP);
+    creation_date TIMESTAMP,
+    last_edit_date TIMESTAMP);
 
 INSERT INTO stories(title, content, creationDate, lastEditDate)
 VALUES
