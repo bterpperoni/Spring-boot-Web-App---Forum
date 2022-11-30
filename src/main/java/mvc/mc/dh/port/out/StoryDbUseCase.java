@@ -5,6 +5,7 @@ import mvc.mc.dh.model.Story;
 import java.util.List;
 
 public interface StoryDbUseCase {
-    public List<Story> getStories();
-    public Story getStory(long id);
+    List<Story> getStories();
+    Story getStory(long id);
+    Story addStory(Story story);
 }
