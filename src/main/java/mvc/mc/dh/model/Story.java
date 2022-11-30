@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Story {
     @Getter
-    private final int ID;
+    private final long ID;
     @Getter
     private final String TITLE;
     @Getter
