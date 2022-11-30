@@ -1,0 +1,10 @@
+.stories-div{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 50px;
+}
+.stories-div > div{
+    margin: 20px;
+}
