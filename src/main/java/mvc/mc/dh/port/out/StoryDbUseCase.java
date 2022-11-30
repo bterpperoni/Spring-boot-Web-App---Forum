@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface StoryDbUseCase {
     public List<Story> getStories();
-    public Story getStory(int id);
+    public Story getStory(long id);
 }
