@@ -17,7 +17,6 @@ public class StoryService implements StoryUseCase{
     public List<Story> getStories() {
         return getStoryDbUseCase().getStories();
     }
-
     @Override
     public Story getStory(long id) {
         return getStoryDbUseCase().getStory(id);
