@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import mvc.mc.dh.model.Story;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -21,15 +22,22 @@ public class StoryController {
     private List<Story> storyList;
 
     @GetMapping("/")
-    public String index() {
-        return "index";
+    public String index(Model model) {
+        storyList = storyUseCase.getStories();
+        // The name in "" will be used by thymeleaf to provide view
+        model.addAttribute("storyList",storyList);
+        return "storyList";
     }
 
     // Test page
     @GetMapping("/test")
     public String test(Model model){
+        /*
         Story newStory = new Story(0, "test", null, null, null);
         model.addAttribute("story", newStory);
+         */
+        Story newStory = new Story(0, "Titre2", "Contenu2", LocalDateTime.now(), LocalDateTime.now());
+        storyUseCase.addStory(newStory);
         return "test";
     }
 

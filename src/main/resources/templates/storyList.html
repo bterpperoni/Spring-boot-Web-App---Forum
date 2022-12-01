@@ -31,8 +31,8 @@
     <div class="card" style="width: 18rem;" th:each="story : ${storyList}">
         <div class="card-body">
             <h5 class="card-title" th:text="${story.getTITLE}"></h5>
-            <p class="card-text" th:text="${story.getCONTENT}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button type="button" class="btn btn-primary">Lire</button>
+            <p class="card-text" th:text="${#strings.abbreviate(story.getCONTENT,150)} ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button type="button" class="btn btn-primary"><a th:href="@{'/story/' + ${story.getID}}">Lire</a></button>
         </div>
     </div>
 </div>
