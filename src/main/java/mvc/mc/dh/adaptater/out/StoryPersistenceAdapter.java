@@ -34,7 +34,6 @@ public class StoryPersistenceAdapter implements StoryDbUseCase {
             Map the model to a JPA entity, save and then return the JPA Entity freshly saved
          */
         StoryJpaEntity storyJpaEntity = storyRepository.save(storyMapper.mapStoryModelToJpa(story));
-        storyRepository.save(storyJpaEntity);
         return storyMapper.mapStoryJpaToModel(storyJpaEntity);
     }
 }

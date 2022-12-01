@@ -11,6 +11,7 @@ import mvc.mc.dh.port.out.StoryDbUseCase;
 @RequiredArgsConstructor
 public class StoryService implements StoryUseCase{
 
+    // By convention we declare the getter for storyDbUseCase Interface
     @Getter
     private final StoryDbUseCase storyDbUseCase;
     @Override
