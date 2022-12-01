@@ -13,7 +13,7 @@ public class StoryPersistenceAdapter implements StoryDbUseCase {
     @Override
     public List<Story> getStories() {
         /*
-            Get every JPA Entities from the Database, map them to models and return models list
+            Return a list containing all the stories in the database
          */
         List<StoryJpaEntity> storiesEntity = storyRepository.findAll();
         return storyMapper.mapStoryJpaToModel(storiesEntity);
@@ -22,7 +22,7 @@ public class StoryPersistenceAdapter implements StoryDbUseCase {
     @Override
     public Story getStory(long id) {
         /*
-            Map the story found in database to a model, and return the model.
+            Return a specific story by providing an id
          */
         StoryJpaEntity storyEntity = storyRepository.findById(id).stream().findFirst().orElse(null);
         return storyMapper.mapStoryJpaToModel(storyEntity);
