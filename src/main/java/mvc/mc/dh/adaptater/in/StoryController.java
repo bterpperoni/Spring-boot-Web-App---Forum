@@ -62,19 +62,19 @@ public class StoryController {
 
     // Method to see the form registration
     @GetMapping("/create")
-    public String createStory(){
-        //Story storyCreate = new Story(0,"","",LocalDateTime.now(),LocalDateTime.now());
-        //model.addAttribute("storyCreate",storyCreate);
+    public String createStory(Model model){
+        Story storyCreate = new Story(0,"","",LocalDateTime.now(),LocalDateTime.now());
+        model.addAttribute("storyCreate",storyCreate);
         return "storyCreate";
     }
 
     // Method to add a new story
-    @PostMapping("/addStory")
-    //@ResponseBody
-    public RedirectView createStoryProcess(@ModelAttribute("createStory") Story story){
-        Long redirectID = story.getID();
+    //@ModelAttribute("createStory") Story story --> Récupère les attributs d'un objet fournit par un form
+    @PostMapping("/create")
+    @ResponseBody
+    public RedirectView createStoryProcess(@RequestBody Story story){
         storyUseCase.addStory(story);
-        return new RedirectView("/story/"+redirectID);
+        return new RedirectView("/story/"+(storyList.size()-1));
      }
 
 }
