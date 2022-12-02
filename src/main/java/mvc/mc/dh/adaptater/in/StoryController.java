@@ -1,10 +1,6 @@
 package mvc.mc.dh.adaptater.in;
 
-import com.auth0.AuthenticationController;
-import com.auth0.jwk.JwkProvider;
-import com.auth0.jwk.JwkProviderBuilder;
 import lombok.RequiredArgsConstructor;
-import mvc.mc.dh.AuthenticationControllerProvider;
 import mvc.mc.dh.port.in.StoryUseCase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import mvc.mc.dh.model.Story;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
