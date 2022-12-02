@@ -1,6 +1,10 @@
 package mvc.mc.dh.adaptater.in;
 
+import com.auth0.AuthenticationController;
+import com.auth0.jwk.JwkProvider;
+import com.auth0.jwk.JwkProviderBuilder;
 import lombok.RequiredArgsConstructor;
+import mvc.mc.dh.AuthenticationControllerProvider;
 import mvc.mc.dh.port.in.StoryUseCase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,12 +34,6 @@ public class StoryController {
     // Test page
     @GetMapping("/test")
     public String test(Model model){
-        /*
-        Story newStory = new Story(0, "test", null, null, null);
-        model.addAttribute("story", newStory);
-         */
-        Story newStory = new Story(0, "Titre2", "Contenu2", LocalDateTime.now(), LocalDateTime.now());
-        storyUseCase.addStory(newStory);
         return "test";
     }
 
@@ -60,5 +58,10 @@ public class StoryController {
         Story storyCreate = storyUseCase.addStory(story);
         model.addAttribute("storyCreate",storyCreate);
         return "storyCreate";
+    }
+
+    @GetMapping("/account")
+    public String account(){
+        return "account";
     }
 }
