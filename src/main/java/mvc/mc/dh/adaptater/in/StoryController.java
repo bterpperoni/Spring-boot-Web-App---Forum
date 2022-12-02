@@ -1,15 +1,16 @@
 package mvc.mc.dh.adaptater.in;
 
+import com.auth0.AuthenticationController;
+import com.auth0.jwk.JwkProvider;
+import com.auth0.jwk.JwkProviderBuilder;
 import lombok.RequiredArgsConstructor;
-import mvc.mc.dh.adaptater.out.StoryJpaEntity;
+import mvc.mc.dh.AuthenticationControllerProvider;
 import mvc.mc.dh.port.in.StoryUseCase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import mvc.mc.dh.model.Story;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -33,16 +34,10 @@ public class StoryController {
     // Test page
     @GetMapping("/test")
     public String test(Model model){
-        /*
-        Story newStory = new Story(0, "test", null, null, null);
-        model.addAttribute("story", newStory);
-         */
-        Story newStory = new Story(0, "Titre2", "Contenu2", LocalDateTime.now(), LocalDateTime.now());
-        storyUseCase.addStory(newStory);
         return "test";
     }
 
-    // Return the story list
+    // Return the story List view
     @GetMapping("/stories")
     public String viewStories(Model model){
         storyList = storyUseCase.getStories();
@@ -51,7 +46,6 @@ public class StoryController {
         return "storyList";
     }
 
-    // Return story by ID
     @GetMapping("/story/{id}")
     public String viewStory(@PathVariable("id") Long ID,Model model){
         Story storyID = storyUseCase.getStory(ID);
@@ -59,22 +53,15 @@ public class StoryController {
         return "storyID";
     }
 
-
-    // Method to see the form registration
-    @GetMapping("/create")
-    public String createStory(){
-        //Story storyCreate = new Story(0,"","",LocalDateTime.now(),LocalDateTime.now());
-        //model.addAttribute("storyCreate",storyCreate);
+    @PostMapping("/story/create")
+    public String createStory(@RequestBody Story story, Model model){
+        Story storyCreate = storyUseCase.addStory(story);
+        model.addAttribute("storyCreate",storyCreate);
         return "storyCreate";
     }
 
-    // Method to add a new story
-    @PostMapping("/addStory")
-    //@ResponseBody
-    public RedirectView createStoryProcess(@ModelAttribute("createStory") Story story){
-        Long redirectID = story.getID();
-        storyUseCase.addStory(story);
-        return new RedirectView("/story/"+redirectID);
-     }
-
+    @GetMapping("/account")
+    public String account(){
+        return "account";
+    }
 }

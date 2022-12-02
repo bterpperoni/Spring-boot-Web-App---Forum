@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +21,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{'/create'}">Créer une story</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a th:href="@{/oauth2/authorization/auth0}" class="nav-link">Se déconnecter</a>
+                </li>
+                <li sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/oauth2/authorization/auth0}" class="nav-link">Connexion</a>
                 </li>
             </ul>
 
