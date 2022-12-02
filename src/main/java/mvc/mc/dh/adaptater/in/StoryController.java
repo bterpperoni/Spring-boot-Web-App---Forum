@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import mvc.mc.dh.model.Story;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -30,12 +29,6 @@ public class StoryController {
     // Test page
     @GetMapping("/test")
     public String test(Model model){
-        /*
-        Story newStory = new Story(0, "test", null, null, null);
-        model.addAttribute("story", newStory);
-         */
-        Story newStory = new Story(0, "Titre2", "Contenu2", LocalDateTime.now(), LocalDateTime.now());
-        storyUseCase.addStory(newStory);
         return "test";
     }
 
@@ -60,5 +53,10 @@ public class StoryController {
         Story storyCreate = storyUseCase.addStory(story);
         model.addAttribute("storyCreate",storyCreate);
         return "storyCreate";
+    }
+
+    @GetMapping("/account")
+    public String account(){
+        return "account";
     }
 }
