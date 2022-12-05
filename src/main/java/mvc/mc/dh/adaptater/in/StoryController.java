@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import mvc.mc.dh.model.Story;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -55,10 +56,16 @@ public class StoryController {
         return "storyID";
     }
 
-    @PostMapping("/story/create")
-    public String createStory(@RequestBody Story story, Model model){
-        Story storyCreate = storyUseCase.addStory(story);
-        model.addAttribute("storyCreate",storyCreate);
+    @GetMapping("/create")
+    public String createStory(Model model){
+        model.addAttribute("storyCreate", new Story(0,"","",LocalDateTime.now(),LocalDateTime.now()));
         return "storyCreate";
+    }
+
+    @PostMapping("/create")
+    public RedirectView addToDb(@ModelAttribute Story story, Model model){
+        model.addAttribute(story);
+        Story newStory = storyUseCase.addStory(story);
+        return new RedirectView("/story/" + newStory.getID());
     }
 }
