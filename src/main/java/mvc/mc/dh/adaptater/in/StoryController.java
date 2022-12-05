@@ -1,14 +1,12 @@
 package mvc.mc.dh.adaptater.in;
 
 import lombok.RequiredArgsConstructor;
-import mvc.mc.dh.adaptater.out.StoryJpaEntity;
 import mvc.mc.dh.port.in.StoryUseCase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import mvc.mc.dh.model.Story;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.time.LocalDateTime;
@@ -42,7 +40,7 @@ public class StoryController {
         return "test";
     }
 
-    // Return the story list
+    // Return the story List view
     @GetMapping("/stories")
     public String viewStories(Model model){
         storyList = storyUseCase.getStories();
@@ -51,7 +49,6 @@ public class StoryController {
         return "storyList";
     }
 
-    // Return story by ID
     @GetMapping("/story/{id}")
     public String viewStory(@PathVariable("id") Long ID,Model model){
         Story storyID = storyUseCase.getStory(ID);
@@ -59,22 +56,16 @@ public class StoryController {
         return "storyID";
     }
 
-
-    // Method to see the form registration
     @GetMapping("/create")
     public String createStory(Model model){
-        Story storyCreate = new Story(0,"","",LocalDateTime.now(),LocalDateTime.now());
-        model.addAttribute("storyCreate",storyCreate);
+        model.addAttribute("storyCreate", new Story(0,"","",LocalDateTime.now(),LocalDateTime.now()));
         return "storyCreate";
     }
 
-    // Method to add a new story
-    //@ModelAttribute("createStory") Story story --> Récupère les attributs d'un objet fournit par un form
     @PostMapping("/create")
-    @ResponseBody
-    public RedirectView createStoryProcess(@RequestBody Story story){
-        storyUseCase.addStory(story);
-        return new RedirectView("/story/"+(storyList.size()-1));
-     }
-
+    public RedirectView addToDb(@ModelAttribute Story story, Model model){
+        model.addAttribute(story);
+        Story newStory = storyUseCase.addStory(story);
+        return new RedirectView("/story/" + newStory.getID());
+    }
 }
