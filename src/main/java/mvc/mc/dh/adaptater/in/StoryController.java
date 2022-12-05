@@ -1,14 +1,12 @@
 package mvc.mc.dh.adaptater.in;
 
 import lombok.RequiredArgsConstructor;
-import mvc.mc.dh.adaptater.out.StoryJpaEntity;
 import mvc.mc.dh.port.in.StoryUseCase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import mvc.mc.dh.model.Story;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.time.LocalDateTime;
@@ -42,7 +40,7 @@ public class StoryController {
         return "test";
     }
 
-    // Return the story list
+    // Return the story List view
     @GetMapping("/stories")
     public String viewStories(Model model){
         storyList = storyUseCase.getStories();
@@ -51,14 +49,12 @@ public class StoryController {
         return "storyList";
     }
 
-    // Return story by ID
     @GetMapping("/story/{id}")
     public String viewStory(@PathVariable("id") Long ID,Model model){
         Story storyID = storyUseCase.getStory(ID);
         model.addAttribute("storyID",storyID);
         return "storyID";
     }
-
 
     // Method to see the form registration
     @GetMapping("/create")
@@ -69,12 +65,11 @@ public class StoryController {
     }
 
     // Method to add a new story
-    //@ModelAttribute("createStory") Story story --> Récupère les attributs d'un objet fournit par un form
+    //@ModelAttribute("createStory") Story story --> Provide attr from a html form
     @PostMapping("/create")
     @ResponseBody
     public RedirectView createStoryProcess(@RequestBody Story story){
         storyUseCase.addStory(story);
-        return new RedirectView("/story/"+(storyList.size()-1));
-     }
-
+        return new RedirectView("/story/"+story.getID());
+    }
 }
