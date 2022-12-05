@@ -2,6 +2,7 @@ package mvc.mc.dh.adaptater.in;
 
 import lombok.RequiredArgsConstructor;
 import mvc.mc.dh.port.in.StoryUseCase;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -57,7 +58,8 @@ public class StoryController {
     }
 
     @GetMapping("/create")
-    public String createStory(Model model){
+    public String createStory(Model model, Authentication auth){
+        if (auth == null){ return "redirect:/oauth2/authorization/auth0"; }
         model.addAttribute("storyCreate", new Story(0,"","",LocalDateTime.now(),LocalDateTime.now()));
         return "storyCreate";
     }
