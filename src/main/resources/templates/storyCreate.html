@@ -6,12 +6,12 @@
 </head>
 <body>
 <h1>Form</h1>
-<form action="/addStory"  method="post" name="createStory">
-    <p>Title: <input type="text" name="TITLE"/></p>
-    <p>Content: <input type="text" name="CONTENT"/></p>
-    <p>Content: <input type="hidden" name="ID"/></p>
-    <p>Content: <input type="hidden" name="CREATIONDATE"/></p>
-    <p>Content: <input type="hidden" name="LASTEDITDATE"/></p>
+<form th:action="@{/create}"  th:object="${storyCreate}" method="post" name="createStory">
+    <p>Content: <input type="hidden" th:field="*{ID}"/></p>
+    <p>Title: <input type="text" th:field="*{TITLE}"/></p>
+    <p>Content: <input type="text" th:field="*{CONTENT}"/></p>
+    <p>Content: <input type="hidden" th:field="*{CREATIONDATE}"/></p>
+    <p>Content: <input type="hidden" th:field="*{LASTEDITDATE}"/></p>
     <p><input type="submit" value="Submit" /></p>
 </form>
 </body>
