@@ -17,6 +17,7 @@ public class StoryMapper {
         return storiesList;
     }
     Story mapStoryJpaToModel(StoryJpaEntity storyEntity){
+        if (storyEntity == null){ return null; }
         Story story = new Story(storyEntity.getId(), storyEntity.getTitle(), storyEntity.getContent(), storyEntity.getCreationDate(), storyEntity.getLastEditDate());
         return story;
     }

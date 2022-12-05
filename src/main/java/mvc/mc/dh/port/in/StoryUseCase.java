@@ -7,4 +7,5 @@ public interface StoryUseCase {
     List<Story> getStories();
     Story getStory(long id);
     Story addStory(Story story);
+    boolean removeStory(long id);
 }

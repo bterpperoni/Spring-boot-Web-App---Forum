@@ -21,9 +21,10 @@ public class StoryService implements StoryUseCase{
     public Story getStory(long id) {
         return getStoryDbUseCase().getStory(id);
     }
-
     @Override
     public Story addStory(Story story) {
         return getStoryDbUseCase().addStory(story);
     }
+    @Override
+    public boolean removeStory(long id) { return getStoryDbUseCase().removeStory(id); }
 }
