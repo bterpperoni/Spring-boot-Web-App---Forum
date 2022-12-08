@@ -8,4 +8,5 @@ public interface StoryDbUseCase {
     List<Story> getStories();
     Story getStory(long id);
     Story addStory(Story story);
+    Story updateStory(Story story);
 }
