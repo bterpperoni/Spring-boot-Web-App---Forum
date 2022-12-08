@@ -27,6 +27,13 @@ public class StoryJpaEntity {
         this.lastEditDate = lastEditDate;
         this.visible = visible;
     }
+    public StoryJpaEntity(long id, String title, String content, LocalDateTime creationDate, LocalDateTime lastEditDate){
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.creationDate = creationDate;
+        this.lastEditDate = lastEditDate;
+    }
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
