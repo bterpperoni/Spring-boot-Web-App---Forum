@@ -20,8 +20,18 @@ public class StoryMapper {
         Story story = new Story(storyEntity.getId(), storyEntity.getTitle(), storyEntity.getContent(), storyEntity.getCreationDate(), storyEntity.getLastEditDate());
         return story;
     }
-    StoryJpaEntity mapStoryModelToJpa(Story story){
-        StoryJpaEntity storyJpaEntity = new StoryJpaEntity(story.getTITLE(), story.getCONTENT(), story.getCREATIONDATE(), story.getLASTEDITDATE());
+    StoryJpaEntity mapStoryModelToJpa(Story story, boolean createNewId){
+        /*
+            Return a JPA Entity from a model
+            Boolean createNewId used to specify if it's a new entry or an update
+         */
+        StoryJpaEntity storyJpaEntity;
+        if (createNewId){
+            storyJpaEntity = new StoryJpaEntity(story.getTITLE(), story.getCONTENT(), story.getCREATIONDATE(), story.getLASTEDITDATE());
+        }
+        else{
+            storyJpaEntity = new StoryJpaEntity(story.getID(), story.getTITLE(), story.getCONTENT(), story.getCREATIONDATE(), story.getLASTEDITDATE());
+        }
         return storyJpaEntity;
     }
 }
