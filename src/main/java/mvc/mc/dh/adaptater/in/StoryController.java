@@ -24,7 +24,6 @@ public class StoryController {
     @GetMapping("/")
     public String index(Model model) {
         storyList = storyUseCase.getStories();
-        // The name in "" will be used by thymeleaf to provide view
         model.addAttribute("storyList",storyList);
         return "storyList";
     }
@@ -48,5 +47,12 @@ public class StoryController {
         model.addAttribute(story);
         Story newStory = storyUseCase.addStory(story);
         return new RedirectView("/story/" + newStory.getID());
+    }
+
+    @PostMapping("/update")
+    public RedirectView updateStory(@ModelAttribute Story story, Model model){
+        model.addAttribute(story);
+        Story updateStory = storyUseCase.updateStory(story);
+        return new RedirectView("/story" + updateStory.getID());
     }
 }

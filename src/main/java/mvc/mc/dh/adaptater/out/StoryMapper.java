@@ -2,6 +2,7 @@ package mvc.mc.dh.adaptater.out;
 
 import mvc.mc.dh.model.Story;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class StoryMapper {
             storyJpaEntity = new StoryJpaEntity(story.getTITLE(), story.getCONTENT(), story.getCREATIONDATE(), story.getLASTEDITDATE());
         }
         else{
-            storyJpaEntity = new StoryJpaEntity(story.getID(), story.getTITLE(), story.getCONTENT(), story.getCREATIONDATE(), story.getLASTEDITDATE());
+            storyJpaEntity = new StoryJpaEntity(story.getID(), story.getTITLE(), story.getCONTENT(), story.getCREATIONDATE(), LocalDateTime.now());
         }
         return storyJpaEntity;
     }
