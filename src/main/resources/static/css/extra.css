@@ -21,6 +21,11 @@ root{
     height: 100%;
 }
 
+#form10{
+    width: 100%;
+    height:auto;
+}
+
 #form-tab{
     margin:1em;
 }
