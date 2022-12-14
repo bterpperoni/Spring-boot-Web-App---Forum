@@ -4,14 +4,10 @@
 <body>
 <nav th:insert="snippets/nav.html"></nav>
 <div class="stories-div">
-  <div class="card" style="width: 18rem;">
+  <div class="specific-story-div">
     <div class="card-body">
-      <h5 class="card-title" th:text="${storyID.TITLE}"></h5>
-      <div class="card-text">
-        <i class="fas fa-pencil-alt prefix"></i>
-        <textfield readonly id="form10" class="md-textarea w-100" rows="8" th:field="*{storyID.CONTENT}" placeholder="Content"></textfield>
-        <span class="invalid-feedback"></span>
-      </div>
+      <h5 class="card-title" th:text="${storyID.getTITLE}"></h5>
+      <p class="card-text" th:text="${storyID.getCONTENT}"></p>
     </div>
   </div>
 </div>
