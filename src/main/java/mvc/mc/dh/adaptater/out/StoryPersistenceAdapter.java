@@ -45,4 +45,16 @@ public class StoryPersistenceAdapter implements StoryDbUseCase {
         StoryJpaEntity storyJpaEntity = storyRepository.save(storyMapper.mapStoryModelToJpa(story, false));
         return storyMapper.mapStoryJpaToModel(storyJpaEntity);
     }
+    @Override
+    public boolean removeStory(long id) {
+        /*
+            Check if the story exists, then try to delete it
+            Return True only if the story was existing and has been deleted
+            Return False if the story does not exist or has not been deleted
+         */
+        if (getStory(id) == null){ return false; }
+        storyRepository.deleteById(id);
+        if(getStory(id) == null){ return true; }
+        return false;
+    }
 }
