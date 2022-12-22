@@ -32,6 +32,10 @@ public class AdminController {
         model.addAttribute("storyList", storyList);
         return "adminStoryList";
     }
+    @GetMapping("/")
+    public String delete(){
+
+    }
 
     private boolean isAdmin(Object name){
         try{
