@@ -2,16 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:insert="snippets/head.html"></head>
 <body>
-<nav th:insert="snippets/nav.html"></nav>
+<div th:insert="snippets/nav.html">
+</div>
 <div class="stories-div">
   <div class="specific-story-div">
     <div class="card-body">
       <h5 class="card-title" th:text="${storyID.getTITLE}"></h5>
       <p class="card-text" th:text="${storyID.getCONTENT}"></p>
     </div>
-    <div class="form-floating">
-      <p>Date de création du post : <p th:text="${#temporals.format(storyID.getCREATIONDATE(), 'dd-MM-yyyy HH:mm:ss')}"></p></p>
-      <p>Dernière modification<p th:text="${#temporals.format(storyID.getLASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></p></p>
+    <div class="date-format">
+      <p class="title-date">Date de création du post : <span th:text="${#temporals.format(storyID.getCREATIONDATE(), 'dd-MM-yyyy HH:mm:ss')}"></span></p>
+      <p class="title-date">Dernière modification : <span th:text="${#temporals.format(storyID.getLASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
     </div>
   </div>
 </div>

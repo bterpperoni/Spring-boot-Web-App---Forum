@@ -1,5 +1,6 @@
 package mvc.mc.dh.service;
 
+import java.util.Arrays;
 import java.util.List;
 
 import lombok.Getter;
@@ -28,9 +29,15 @@ public class StoryService implements StoryUseCase{
     }
     @Override
     public Story updateStory(Story story) { return getStoryDbUseCase().updateStory(story); }
-
     @Override
-    public boolean removeStory(long id) {
-        return getStoryDbUseCase().removeStory(id);
+    public Story removeStory(Story story) {return getStoryDbUseCase().removeStory(story);
+    }
+    @Override
+    public boolean isAdmin(String email) {
+        final List<String> admins = List.of("administrator@gmail.com","m.curon@outlook.com");
+        if(admins.contains(email)){
+            return true;
+        }
+        return false;
     }
 }
