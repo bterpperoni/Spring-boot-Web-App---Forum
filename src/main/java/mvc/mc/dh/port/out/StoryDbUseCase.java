@@ -9,5 +9,5 @@ public interface StoryDbUseCase {
     Story getStory(long id);
     Story addStory(Story story);
     Story updateStory(Story story);
-    boolean removeStory(long id);
+    Story removeStory(Story story);
 }

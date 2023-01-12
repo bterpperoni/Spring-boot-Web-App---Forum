@@ -2,9 +2,9 @@ package mvc.mc.dh.model;
 
 import java.time.LocalDateTime;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import net.bytebuddy.asm.Advice;
 
 @RequiredArgsConstructor
 public class Story {
@@ -19,4 +19,7 @@ public class Story {
     private final LocalDateTime CREATIONDATE;
     @Getter
     private final LocalDateTime LASTEDITDATE;
+    @Getter
+    private final boolean VISIBLE;
+
 }
