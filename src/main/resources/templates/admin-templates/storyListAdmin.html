@@ -6,20 +6,13 @@
 <div class="stories-div">
   <div class="card" th:each="story:${storyList} ">
     <div class="card-body">
-      <h4 class="card-title" th:text="${#strings.abbreviate(story.TITLE,150)}"></h4>
+      <h4 class="card-title" th:text="${#strings.abbreviate(story.TITLE,25)}"></h4>
       <p class="title-date">Dernière modification : <span th:text="${#temporals.format(story.LASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
       <p class="card-text" th:text="${#strings.abbreviate(story.CONTENT,150)}"></p>
     </div>
     <p class="card-title visible-p">Visible : <span th:text=" ${story.visible}"></span></p>
     <div class="btn-list-display">
       <button type="button" class="btn btn-primary"><a th:href="@{'/story/' + ${story.ID}}">Lire</a></button>
-  <div class="card" th:each="story:${storyList} ">
-    <div class="card-body">
-      <h5 class="card-title" th:text="${story.TITLE}"></h5>
-      <p>Dernière modification : <p th:text="${#temporals.format(story.LASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></p></p>
-      <p class="card-text" th:text="${#strings.abbreviate(story.CONTENT,150)} "></p>
-      <button type="button" class="btn btn-primary"><a th:href="@{'/story/' + ${story.ID}}">Lire</a></button>
-      <p class="card-title" th:text=" ${'Visible =' + story.visible}"></p>
       <!-- Button trigger update -->
       <button type="button" class="btn btn-primary"><a th:href="@{'/update/' + ${story.ID}}">Modifier</a></button>
     </div>

@@ -6,7 +6,7 @@
 <div class="stories-div">
     <div class="card" th:if="${story.isVisible()}" th:each="story : ${storyList}">
         <div class="card-body">
-            <h4 class="card-title" th:text="${#strings.abbreviate(story.TITLE,150)}"></h4>
+            <h4 class="card-title" th:text="${#strings.abbreviate(story.TITLE,25)}"></h4>
             <p class="title-date">Dernière modification : <br><span th:text="${#temporals.format(story.LASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
             <p class="card-text" th:text="${#strings.abbreviate(story.CONTENT,150)} "></p>
         </div>

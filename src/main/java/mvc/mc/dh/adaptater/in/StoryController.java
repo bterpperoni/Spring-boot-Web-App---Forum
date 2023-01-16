@@ -53,8 +53,9 @@ public class StoryController {
     //----------------------------------------------------------------------------------------------
     //--------------------------------------Create Story--------------------------------------------
     @GetMapping("/create")
-    public String createStory(@AuthenticationPrincipal OidcUser principal, Authentication auth, Model model){
-        if (auth == null || !storyUseCase.isAdmin(principal.getEmail())){ return "redirect:/oauth2/authorization/auth0"; }
+    // @AuthenticationPrincipal OidcUser principal --> use to determine who wrote the post
+    public String createStory(Authentication auth, Model model){
+        if (auth == null ){ return "redirect:/oauth2/authorization/auth0"; }
         else{
             model.addAttribute("storyCreate", new Story(0,"","", LocalDateTime.now(),LocalDateTime.now(), true));
             return "/admin-templates/storyCreate";

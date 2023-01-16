@@ -4,7 +4,7 @@ root{
 }
 
 .card{
-    max-width: 100%;
+    width: 100%;
     margin: 0.5rem !important;
     border: 2px solid black;
 }
@@ -12,7 +12,6 @@ root{
 .card-body{
     display:flex;
     flex-direction:column;
-    text-align:center;
 }
 
 .btn-list-display{
@@ -32,10 +31,12 @@ root{
 }
 
 .stories-div-id {
-    margin: 2rem;
-    border: 2px solid black;
+    margin: 1rem;
+    border: 5px solid black;
     overflow: hidden;
-    padding: 2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.5rem;
     position:relative;
 }
 
@@ -68,7 +69,7 @@ root{
 h4{
     position:relative;
     bottom:.5rem;
-    left:45%;
+    left:0px;
     border-bottom: 1px solid;
     width:fit-content;
     padding:5px;
@@ -84,7 +85,8 @@ h4{
 }
 /*----------------<Admin button>----------------------------------*/
 .btn-admin-id{
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-bottom:15px;
     border-top:2px solid black;
     border-bottom:2px solid black;
     position: relative;
@@ -107,28 +109,27 @@ h4{
 
 
 /*--------------Div contain date format-----------------*/
-.date-format{
+.date-format {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 0.75rem;
     font-weight: bold;
     width: 100%;
-    position:relative;
-    overflow:hidden;
+    position: relative;
+    overflow: hidden;
+    flex-wrap: nowrap;
 }
 
-.date-format p + p:before{
-    position:absolute;
-    content:"";
-    height:8vh;
-    width:.2rem;
-    background-color:black;
-    left:50.34%;
-    top:2px;
+.date-format p + p:before {
+    position: absolute;
+    content: "";
+    height: 8vh;
+    width: 0.1rem;
+    background-color: black;
+    left: 50%;
+    top: 2px;
 }
 
 .title-date{

@@ -1,19 +1,18 @@
 
-function setPPos(element) {
-    var widthElement = $(element).width();
-    var posMilieu = ($(element).parent().width() / 2) - (widthElement / 2);
-    $(element).css('left', posMilieu + 'px');
-    console.log("Horizontal align set at :" + posMilieu + "px");
+function setPos(element) {
+    let widthElement = ($(element).width() /2);
+    let position = ($(element).parent().width() / 2);
+    position = position - widthElement;
+    $(element).css('left', position + 'px');
+    console.log(position);
+
 }
 
-
 $(document).ready(function(){
-    setPPos(".visible-p");
-    setPPos(".h4");
 
+    setPos(".visible-p");
     $(window).resize(function(){
-        setPPos(".visible-p");
-        setPPos("h4");
+        setPos(".visible-p");
     })
 
 
