@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:insert="snippets/head.html"></head>
+<head th:insert="./snippets/head.html"></head>
 <body>
-<div th:insert="snippets/nav.html"></div>
+<div th:insert="./snippets/nav.html"></div>
 <div class="stories-div">
     <div class="card" th:if="${story.isVisible()}" th:each="story : ${storyList}">
         <div class="card-body">

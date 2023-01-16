@@ -20,6 +20,6 @@ public class Story {
     @Getter
     private final LocalDateTime LASTEDITDATE;
     @Getter
-    private final boolean VISIBLE;
+    private final boolean visible;
 
 }
