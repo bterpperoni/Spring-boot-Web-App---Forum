@@ -16,7 +16,7 @@
       </div>
       <input type="hidden" th:field="*{CREATIONDATE}"/>
       <input type="hidden" th:field="*{LASTEDITDATE}"/>
-      <input type="checkbox" id="visible" th:checked="${storyUpdate.isVisible()}" th:field="*{visible}"/>
+      <label class="switch"><input type="checkbox" th:field="*{visible}"><span></span></label>
       <div class="form-floating">
         <input type="submit" class="btn btn-primary" value="Submit">
       </div>

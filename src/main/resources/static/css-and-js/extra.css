@@ -1,0 +1,255 @@
+root{
+    font-size: 16px;
+    --blue-sky : #2196F3;
+}
+
+.card{
+    max-width: 100%;
+    margin: 0.5rem !important;
+    border: 2px solid black;
+}
+
+.card-body{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+}
+
+.btn-list-display{
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px;
+}
+
+.card button,
+.card button + button {
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.specific-story-div{
+    max-width: 100%;
+}
+
+.stories-div-id {
+    margin: 2rem;
+    border: 2px solid black;
+    overflow: hidden;
+    padding: 2rem;
+    position:relative;
+}
+
+.stories-div{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 50px;
+}
+.stories-div > div{
+    margin: 20px;
+}
+.btn-primary > a{
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+#form-tab{
+    margin:1em;
+}
+
+#textAreaExample1{
+    margin:1em 0 1em 0;
+}
+
+h4{
+    position:relative;
+    bottom:.5rem;
+    left:45%;
+    border-top:1px solid;
+    border-bottom: 1px solid;
+    width:fit-content;
+    padding:5px;
+    margin-top:.5rem;
+}
+.content-p{
+    overflow: hidden;
+    box-sizing: border-box;
+    border-left:1px solid;
+    border-top:1px solid black ;
+    border-right:1px solid black;
+    padding:.5rem;
+}
+/*----------------<Admin button>----------------------------------*/
+.btn-admin-id{
+    margin-top: 15px;
+    border-top:2px solid black;
+    border-bottom:2px solid black;
+    position: relative;
+    top: 0.5rem;
+}
+
+.visible-p{
+    font-weight: bold;
+    border-top:1px solid;
+    border-bottom:1px solid;
+    width:fit-content;
+    justify-content: center;
+    position: relative;
+}
+
+.visible-p span{
+    font-weight: normal;
+}
+/*----------------</Admin button>----------------------------------*/
+
+
+/*--------------Div contain date format-----------------*/
+.date-format{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-around;
+    padding-top: 0.75rem;
+    font-weight: bold;
+    width: 100%;
+    position:relative;
+    overflow:hidden;
+}
+
+.date-format p + p:before{
+    position:absolute;
+    content:"";
+    height:8vh;
+    width:.2rem;
+    background-color:black;
+    left:50.34%;
+    top:2px;
+}
+
+.title-date{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-right: .3rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.title-date span{
+    margin-left:10px;
+}
+
+.title-date span,
+.date-format span{
+    font-weight: normal;
+}
+
+.date-format.list{
+    flex-direction: column;
+    text-align: center;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    margin-bottom: 5px;
+}
+
+input + span {
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    transition: .4s;
+}
+
+.switch + input:checked{
+    background-color: #2196F3;
+}
+
+input:checked + span:before{
+    transform : translateX(26px);
+    -webkit-transform-origin: left;
+}
+
+/*--------------/Div contain date format-----------------*/
+
+/*----------------<isVisible slider>----------------------------------
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+----------------</isVisible slider>----------------------------------*/
+@media screen and (min-width: 1024px){
+    .card{
+        width:47%;
+    }
+}

@@ -3,19 +3,19 @@
 <head th:insert="snippets/head.html"></head>
 <body>
 <div th:insert="./snippets/navAdmin.html"></div>
-<div class="stories-div">
+<div class="stories-div-id">
     <div class="specific-story-div">
         <div class="card-body">
-            <h5 class="card-title" th:text="${storyID.TITLE}"></h5>
-            <p class="card-text" th:text="${storyID.CONTENT}"></p>
+            <h4 class="card-title" th:text="${storyID.TITLE}"></h4>
+            <p class="card-text content-p" th:text="${storyID.CONTENT}"></p>
         </div>
         <div class="date-format">
-            <p class="update">Date de création du post : <span th:text="${#temporals.format(storyID.CREATIONDATE(), 'dd-MM-yyyy HH:mm:ss')}"></span></p>
-            <p class="update">Dernière modification<span th:text="${#temporals.format(storyID.LASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
+            <p>Date de création du post : <span th:text="${#temporals.format(storyID.CREATIONDATE(), 'dd-MM-yyyy HH:mm:ss')}"></span></p>
+            <p>Dernière modification<span th:text="${#temporals.format(storyID.LASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
         </div>
-        <div class="btn-admin-id date-format">
+        <div>
             <!-- Button trigger update -->
-            <button type="button" class="btn btn-primary"><a th:href="@{'/update/' + ${storyID.ID}}">Modifier</a></button>
+            <button type="button" class="btn btn-primary btn-admin-id date-format"><a th:href="@{'/update/' + ${storyID.ID}}">Modifier</a></button>
         </div>
     </div>
 </div>
