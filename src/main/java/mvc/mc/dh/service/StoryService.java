@@ -30,9 +30,6 @@ public class StoryService implements StoryUseCase{
     @Override
     public Story updateStory(Story story) { return getStoryDbUseCase().updateStory(story); }
     @Override
-    public Story removeStory(Story story) {return getStoryDbUseCase().removeStory(story);
-    }
-    @Override
     public boolean isAdmin(String email) {
         final List<String> admins = List.of("administrator@gmail.com","m.curon@outlook.com");
         if(admins.contains(email)){

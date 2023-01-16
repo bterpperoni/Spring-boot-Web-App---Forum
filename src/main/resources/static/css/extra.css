@@ -3,6 +3,43 @@ root{
     --blue-sky : #2196F3;
 }
 
+.card{
+    width: 100%;
+    margin: 0.5rem !important;
+    border: 2px solid black;
+}
+
+.card-body{
+    display:flex;
+    flex-direction:column;
+}
+
+.btn-list-display{
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px;
+}
+
+.card button,
+.card button + button {
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.specific-story-div{
+    max-width: 100%;
+}
+
+.stories-div-id {
+    margin: 1rem;
+    border: 5px solid black;
+    overflow: hidden;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.5rem;
+    position:relative;
+}
+
 .stories-div{
     width: 100%;
     display: flex;
@@ -21,11 +58,6 @@ root{
     height: 100%;
 }
 
-#form10{
-    width: 100%;
-    height:auto;
-}
-
 #form-tab{
     margin:1em;
 }
@@ -34,39 +66,141 @@ root{
     margin:1em 0 1em 0;
 }
 
+h4{
+    position:relative;
+    bottom:.5rem;
+    left:0px;
+    border-bottom: 1px solid;
+    width:fit-content;
+    padding:5px;
+    margin-top:.5rem;
+}
+.content-p{
+    overflow: hidden;
+    box-sizing: border-box;
+    border-left:1px solid;
+    border-top:1px solid black ;
+    border-right:1px solid black;
+    padding:.5rem;
+}
+/*----------------<Admin button>----------------------------------*/
+.btn-admin-id{
+    margin-top: 10px;
+    margin-bottom:15px;
+    border-top:2px solid black;
+    border-bottom:2px solid black;
+    position: relative;
+    top: 0.5rem;
+}
+
+.visible-p{
+    font-weight: bold;
+    border-top:1px solid;
+    border-bottom:1px solid;
+    width:fit-content;
+    justify-content: center;
+    position: relative;
+}
+
+.visible-p span{
+    font-weight: normal;
+}
+/*----------------</Admin button>----------------------------------*/
+
 
 /*--------------Div contain date format-----------------*/
-.date-format{
-    margin-top: 15px;
+.date-format {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     padding-top: 0.75rem;
     font-weight: bold;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    flex-wrap: nowrap;
 }
 
+.date-format p + p:before {
+    position: absolute;
+    content: "";
+    height: 8vh;
+    width: 0.1rem;
+    background-color: black;
+    left: 50%;
+    top: 2px;
+}
+
+.title-date{
+    border-top:1px solid #6364649c;
+    border-bottom: 1px solid #6364649c;
+    margin-right: .3rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.title-date span{
+    margin-left:10px;
+}
+
+.title-date span,
 .date-format span{
     font-weight: normal;
 }
 
-/*--------------/Div contain date format-----------------*/
-
-/*----------------<isVisible slider>----------------------------------*/
+.date-format.list{
+    flex-direction: column;
+    text-align: center;
+}
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin-bottom: 1rem;
+    background-color: #ccc;
+    margin-bottom: 5px;
 }
+
+input + span {
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    transition: .4s;
+}
+
+.switch + input:checked{
+    background-color: #2196F3;
+}
+
+input:checked + span:before{
+    transform : translateX(26px);
+    -webkit-transform-origin: left;
+}
+
+/*--------------/Div contain date format-----------------*/
+
+/*----------------<isVisible slider>----------------------------------
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
 
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
+
 
 .slider {
     position: absolute;
@@ -106,7 +240,7 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Rounded sliders */
+
 .slider.round {
     border-radius: 34px;
 }
@@ -114,12 +248,9 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
-/*----------------</isVisible slider>----------------------------------*/
-
-/*----------------<Admin button>----------------------------------*/
-.btn-admin-id{
-    margin-top: 15px;
-    border-top:2px solid black;
-    border-bottom:2px solid black;
+----------------</isVisible slider>----------------------------------*/
+@media screen and (min-width: 1024px){
+    .card{
+        width:47%;
+    }
 }
-/*----------------</Admin button>----------------------------------*/

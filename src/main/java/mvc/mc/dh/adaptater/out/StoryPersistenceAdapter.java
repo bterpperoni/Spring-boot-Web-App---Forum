@@ -45,10 +45,6 @@ public class StoryPersistenceAdapter implements StoryDbUseCase {
         StoryJpaEntity storyJpaEntity = storyRepository.save(storyMapper.mapStoryModelToJpa(story, false));
         return storyMapper.mapStoryJpaToModel(storyJpaEntity);
     }
-    @Override
-  public Story removeStory(Story story) {
-        return story;
- }
 
 
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:insert="snippets/head.html"></head>
+<body>
+<div th:insert="snippets/nav.html"></div>
+<div class="form-group">
+    <!-- ------------------ FORM TO UPDATE STORY ------------------ -->
+    <form id="form-tab" th:action="@{/update}"  th:object="${storyUpdate}" method="post">
+        <input type="hidden" th:field="*{ID}"/>
+        <div class="form-floating">
+            <input type="text" class="form-control w-50" id="floatingInput" th:field="*{TITLE}" th:placeholder="${storyUpdate.TITLE()}">
+            <label for="floatingInput">Title</label>
+        </div>
+        <div class="form-outline">
+            <textarea th:placeholder="${storyUpdate.CONTENT}" class="form-control w-100" id="textAreaExample1" rows="16" th:field="*{CONTENT}"></textarea>
+        </div>
+        <input type="hidden" th:field="*{CREATIONDATE}"/>
+        <input type="hidden" th:field="*{LASTEDITDATE}"/>
+        <label class="switch"><input type="checkbox" th:field="*{visible}"><span></span></label>
+        <div class="form-floating">
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </div>
+    </form>
+    <!-- ------------------ / FORM TO UPDATE STORY ------------------ -->
+</div>
+<!-- div who show dates -->
+<div class="date-format">
+    <p class="update">Date de création du post : <span th:text="${#temporals.format(storyUpdate.CREATIONDATE, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
+    <p class="update">Dernière modification : <span th:text="${#temporals.format(storyUpdate.LASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
+</div>
+<!--/div who show dates -->
+</body>
+</html>
