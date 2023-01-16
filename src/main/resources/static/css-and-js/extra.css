@@ -69,7 +69,6 @@ h4{
     position:relative;
     bottom:.5rem;
     left:45%;
-    border-top:1px solid;
     border-bottom: 1px solid;
     width:fit-content;
     padding:5px;
@@ -112,7 +111,8 @@ h4{
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     display: flex;
-    flex-direction: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 0.75rem;
     font-weight: bold;
@@ -132,8 +132,8 @@ h4{
 }
 
 .title-date{
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    border-top:1px solid #6364649c;
+    border-bottom: 1px solid #6364649c;
     margin-right: .3rem;
     font-weight: bold;
     display: flex;

@@ -7,21 +7,25 @@ import java.time.LocalDateTime;
 @Data
 @Table(name = "stories")
 public class StoryJpaEntity {
-    public StoryJpaEntity(){
+    public StoryJpaEntity() {
 
     }
-    public StoryJpaEntity(String title, String content, LocalDateTime creationDate, LocalDateTime lastEditDate){
+
+    public StoryJpaEntity(String title, String content, LocalDateTime creationDate, LocalDateTime lastEditDate, boolean visible){
         this.title = title;
         this.content = content;
         this.creationDate = creationDate;
         this.lastEditDate = lastEditDate;
+        this.visible = visible;
     }
-    public StoryJpaEntity(long id, String title, String content, LocalDateTime creationDate, LocalDateTime lastEditDate){
+
+    public StoryJpaEntity(long id, String title, String content, LocalDateTime creationDate, LocalDateTime lastEditDate, boolean visible){
         this.id = id;
         this.title = title;
         this.content = content;
         this.creationDate = creationDate;
         this.lastEditDate = lastEditDate;
+        this.visible = visible;
     }
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -39,4 +43,10 @@ public class StoryJpaEntity {
 
     @Column(name = "last_edit_date")
     private LocalDateTime lastEditDate;
+
+    @Column(name="visible")
+    private boolean visible;
+
+    public StoryJpaEntity(long id, String content, LocalDateTime now, LocalDateTime now1, boolean visible) {
+    }
 }

@@ -1,20 +1,7 @@
 package mvc.mc.dh.model;
 
 import java.time.LocalDateTime;
-
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
-public class Story {
-    @Getter
-    private final long ID;
-    @Getter
-    private final String TITLE;
-    @Getter
-    private final String CONTENT;
-    @Getter
-    private final LocalDateTime CREATIONDATE;
-    @Getter
-    private final LocalDateTime LASTEDITDATE;
+public record Story(@Getter long ID, @Getter String TITLE, @Getter String CONTENT, @Getter LocalDateTime CREATIONDATE, @Getter LocalDateTime LASTEDITDATE, @Getter boolean visible) {
 }
