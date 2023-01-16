@@ -2,7 +2,6 @@ package mvc.mc.dh.model;
 
 import java.time.LocalDateTime;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +19,6 @@ public class Story {
     @Getter
     private final LocalDateTime LASTEDITDATE;
     @Getter
-    private final boolean VISIBLE;
+    private final boolean visible;
 
 }

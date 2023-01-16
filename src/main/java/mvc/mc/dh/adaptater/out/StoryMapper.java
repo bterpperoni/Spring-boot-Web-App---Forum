@@ -33,7 +33,7 @@ public class StoryMapper {
             storyJpaEntity = new StoryJpaEntity(story.getTITLE(), story.getCONTENT(), LocalDateTime.now(), LocalDateTime.now(), true);
         }
         else{
-            storyJpaEntity = new StoryJpaEntity(story.getID(), story.getTITLE(), story.getCONTENT(), story.getCREATIONDATE(), LocalDateTime.now(), story.isVISIBLE());
+            storyJpaEntity = new StoryJpaEntity(story.getID(), story.getTITLE(), story.getCONTENT(), story.getCREATIONDATE(), LocalDateTime.now(), story.isVisible());
         }
         return storyJpaEntity;
     }

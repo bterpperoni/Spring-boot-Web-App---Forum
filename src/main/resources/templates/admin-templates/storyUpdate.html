@@ -8,7 +8,7 @@
     <form id="form-tab" th:action="@{/update}"  th:object="${storyUpdate}" method="post">
         <input type="hidden" th:field="*{ID}"/>
         <div class="form-floating">
-            <input type="text" class="form-control w-50" id="floatingInput" th:field="*{TITLE}" th:placeholder="${storyUpdate.TITLE()}">
+            <input type="text" class="form-control w-50" id="floatingInput" th:field="*{TITLE}" th:placeholder="${storyUpdate.TITLE}">
             <label for="floatingInput">Title</label>
         </div>
         <div class="form-outline">
