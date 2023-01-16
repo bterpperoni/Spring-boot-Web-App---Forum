@@ -7,14 +7,9 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.*;
 
 import mvc.mc.dh.model.Story;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.time.LocalDateTime;
@@ -35,21 +30,21 @@ public class StoryController {
         storyList = storyUseCase.getStories();
         model.addAttribute("storyList",storyList);
         if(auth == null || !storyUseCase.isAdmin(principal.getEmail())){
-            return "storyList";
+            // Return stories with VISIBLE = true
+            return "user-templates/storyList";
         }else{
+            // Return all stories
             return "admin-templates/storyListAdmin";
         }
     }
 
     @GetMapping("/story/{id}")
-    public String viewStory(@PathVariable("id") Long ID, Model model, @AuthenticationPrincipal OidcUser principal, Authentication auth, RedirectAttributes redirectAttributes) {
+    public String viewStory(@PathVariable("id") Long ID, Model model, @AuthenticationPrincipal OidcUser principal, Authentication auth) {
         Story storyID = storyUseCase.getStory(ID);
         model.addAttribute("storyID",storyID);
-        if(auth == null){
-                redirectAttributes.addFlashAttribute("error", "Please log in to see complete post");
-            return "redirect:/oauth2/authorization/auth0";
-        }else if(!storyUseCase.isAdmin(principal.getEmail())){
-            return "storyID";
+        if(auth == null){ return "redirect:/oauth2/authorization/auth0"; }
+        else if(!storyUseCase.isAdmin(principal.getEmail())){
+            return "user-templates/storyID";
         }else{
             return "admin-templates/storyIDAdmin";
         }
@@ -62,22 +57,16 @@ public class StoryController {
         if (auth == null || !storyUseCase.isAdmin(principal.getEmail())){ return "redirect:/oauth2/authorization/auth0"; }
         else{
             model.addAttribute("storyCreate", new Story(0,"","", LocalDateTime.now(),LocalDateTime.now(), true));
-            return "storyCreate";
+            return "/admin-templates/storyCreate";
         }
     }
 
     @PostMapping("/create")
-    public RedirectView createStory(@ModelAttribute Story story, Model model, RedirectAttributes redirectAttributes) {
-            model.addAttribute(story);
-            Story newStory = storyUseCase.addStory(story);
-            if(story.getTITLE().equals(newStory.getTITLE())){
-                redirectAttributes.addAttribute("success", "You have successfully added a story !");
-                return new RedirectView("/story/" + newStory.getID());
-            }else{
-                redirectAttributes.addAttribute("error", "Please try again later !");
-                return new RedirectView("/storyCreate");
-            }
-        }
+    public RedirectView createStory(@ModelAttribute("createStory") Story story, Model model) {
+        model.addAttribute(story);
+        Story newStory = storyUseCase.addStory(story);
+        return new RedirectView("/story/" + newStory.ID());
+    }
 
     //----------------------------------------------------------------------------------------------
     //--------------------------------------Update Story--------------------------------------------
@@ -87,18 +76,13 @@ public class StoryController {
         if(auth == null || !storyUseCase.isAdmin(principal.getEmail())){ return "redirect:/oauth2/authorization/auth0"; }
         Story storyID = storyUseCase.getStory(id);
         model.addAttribute("storyUpdate", storyID);
-        return "storyUpdate";
+        return "/admin-templates/storyUpdate";
     }
 
     @PostMapping("/update")
     public RedirectView updateStory(@ModelAttribute Story story, Model model){
         model.addAttribute(story);
         Story updateStory = storyUseCase.updateStory(story);
-        return new RedirectView("/story/" + updateStory.getID());
+        return new RedirectView("/story/" + updateStory.ID());
     }
-
-    //----------------------------------------------------------------------------------------------
-    //--------------------------------------Delete Story--------------------------------------------
-    // todo : visible or not with VISIBLE attribute & implement it in thymeleaf
-
 }

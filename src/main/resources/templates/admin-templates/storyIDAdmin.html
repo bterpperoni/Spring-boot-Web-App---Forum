@@ -6,18 +6,16 @@
 <div class="stories-div">
     <div class="specific-story-div">
         <div class="card-body">
-            <h5 class="card-title" th:text="${storyID.getTITLE}"></h5>
-            <p class="card-text" th:text="${storyID.getCONTENT}"></p>
+            <h5 class="card-title" th:text="${storyID.TITLE}"></h5>
+            <p class="card-text" th:text="${storyID.CONTENT}"></p>
         </div>
         <div class="date-format">
-            <p class="title-date">Date de création du post : <span th:text="${#temporals.format(storyID.getCREATIONDATE(), 'dd-MM-yyyy HH:mm:ss')}"></span></p>
-            <p class="title-date">Dernière modification<span th:text="${#temporals.format(storyID.getLASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
+            <p class="update">Date de création du post : <span th:text="${#temporals.format(storyID.CREATIONDATE(), 'dd-MM-yyyy HH:mm:ss')}"></span></p>
+            <p class="update">Dernière modification<span th:text="${#temporals.format(storyID.LASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
         </div>
-        <div class="btn-admin-id">
+        <div class="btn-admin-id date-format">
             <!-- Button trigger update -->
-            <button type="button" class="btn btn-primary"><a th:href="@{'/update/' + ${storyID.getID}}">Modifier</a></button>
-            <!-- Button trigger remove -->
-            <button type="button" class="btn btn-primary"><a th:href="@{'/delete'}">Delete</a></button>
+            <button type="button" class="btn btn-primary"><a th:href="@{'/update/' + ${storyID.ID}}">Modifier</a></button>
         </div>
     </div>
 </div>

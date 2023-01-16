@@ -8,6 +8,6 @@ public interface StoryUseCase {
     Story getStory(long id);
     Story addStory(Story story);
     Story updateStory(Story story);
-    Story removeStory(Story story);
     boolean isAdmin(String email);
+
 }

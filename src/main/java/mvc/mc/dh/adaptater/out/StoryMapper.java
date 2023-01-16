@@ -30,10 +30,10 @@ public class StoryMapper {
          */
         StoryJpaEntity storyJpaEntity;
         if (createNewId){
-            storyJpaEntity = new StoryJpaEntity(story.getTITLE(), story.getCONTENT(), LocalDateTime.now(), LocalDateTime.now(), true);
+            storyJpaEntity = new StoryJpaEntity(story.ID(),story.TITLE(), story.CONTENT(), LocalDateTime.now(), LocalDateTime.now(), story.visible());
         }
         else{
-            storyJpaEntity = new StoryJpaEntity(story.getID(), story.getTITLE(), story.getCONTENT(), story.getCREATIONDATE(), LocalDateTime.now(), story.isVISIBLE());
+            storyJpaEntity = new StoryJpaEntity(story.ID(), story.TITLE(), story.CONTENT(), story.CREATIONDATE(), LocalDateTime.now(), story.visible());
         }
         return storyJpaEntity;
     }

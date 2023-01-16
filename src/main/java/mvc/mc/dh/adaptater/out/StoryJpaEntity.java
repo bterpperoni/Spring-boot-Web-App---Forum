@@ -46,4 +46,7 @@ public class StoryJpaEntity {
 
     @Column(name="visible")
     private boolean visible;
+
+    public StoryJpaEntity(long id, String content, LocalDateTime now, LocalDateTime now1, boolean visible) {
+    }
 }

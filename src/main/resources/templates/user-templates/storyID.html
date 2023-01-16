@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:insert="snippets/head.html"></head>
+<body>
+<div th:insert="snippets/nav.html">
+</div>
+<div class="stories-div-id">
+  <div class="specific-story-div">
+    <div class="card-body">
+      <h5 class="card-title" th:text="${storyID.TITLE}"></h5>
+      <p class="card-text" th:text="${storyID.CONTENT}"></p>
+    </div>
+    <div class="date-format">
+      <p>Date de création du post : <span th:text="${#temporals.format(storyID.CREATIONDATE(), 'dd-MM-yyyy HH:mm:ss')}"></span></p>
+      <p>Dernière modification : <span th:text="${#temporals.format(storyID.LASTEDITDATE, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
